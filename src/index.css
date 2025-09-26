@@ -1,0 +1,90 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* 💡 Xatolik berayotgan border-border klassi endi config faylida mavjud */
+  * {
+    @apply border-border; 
+  }
+
+  body {
+    @apply bg-dark-900 text-white font-rajdhani;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-neon-gradient animate-neon-pulse;
+  }
+
+  .neon-border {
+    @apply border border-neon-blue shadow-lg;
+    box-shadow: 0 0 10px theme("colors.neon.blue"), 0 0 20px theme("colors.neon.blue"), 0 0 30px
+      theme("colors.neon.blue");
+  }
+
+  .neon-glow {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .dark-glass {
+    @apply bg-dark-800/50 backdrop-blur-md border border-neon-blue/30;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neon-blue rounded-full;
+  box-shadow: 0 0 10px theme("colors.neon.blue");
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neon-purple;
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: theme("colors.neon.blue");
+  border-radius: 50%;
+  animation: particle 20s linear infinite;
+}
+
+.particle:nth-child(2n) {
+  background: theme("colors.neon.purple");
+  animation-delay: -5s;
+}
+
+.particle:nth-child(3n) {
+  background: theme("colors.neon.pink");
+  animation-delay: -10s;
+}
+
+.particle:nth-child(4n) {
+  background: theme("colors.neon.green");
+  animation-delay: -15s;
+}
